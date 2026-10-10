@@ -1,0 +1,11 @@
+manifest_version: 1
+name: taskbar-badge
+version: "0.1.0"
+description: Windows taskbar badge on the Hermes window when a turn finishes.
+author: BrokeSkill
+license: MIT
+requires_hermes: ">=0.21.5"
+tags:
+  - desktop
+  - windows
+  - notifications
