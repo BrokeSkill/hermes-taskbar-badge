@@ -373,48 +373,6 @@ export default {
       }
     }
 
-    const PROMPT_CARDS = '[data-approval-run],[data-clarify-choices],[data-clarify-batch],[data-clarify-select-mode],[data-theme-picker],[data-setup-beat]'
-    const PROMPT_DIALOG = '[data-slot="dialog-content"]:has(input[type="password"],input[autocomplete="one-time-code"])'
-    const promptShown = () => {
-      if (document.querySelector(PROMPT_CARDS)) {
-        return true
-      }
-      try {
-        return Boolean(document.querySelector(PROMPT_DIALOG))
-      } catch {
-        return false
-      }
-    }
-    if (typeof MutationObserver === 'function' && typeof document.querySelector === 'function') {
-      let shown = false
-      let queued = null
-      const scan = () => {
-        queued = null
-        const present = promptShown()
-        if (present === shown) {
-          return
-        }
-        shown = present
-        const sessionId = focused()
-        if (present) {
-          note(sessionId, NEEDS_INPUT, 'clarify.request')
-        } else {
-          ack(sessionId)
-        }
-      }
-      const observer = new MutationObserver(() => {
-        if (queued === null) {
-          queued = setTimeout(scan, 150)
-        }
-      })
-      observer.observe(document.body, { childList: true, subtree: true })
-      ctx.onDispose?.(() => {
-        observer.disconnect()
-        clearTimeout(queued)
-      })
-      scan()
-    }
-
     ctx.onEvent('*', event => {
       const eventType = event?.type
       const sessionId = event?.session_id
@@ -475,6 +433,6 @@ export default {
       })
     }
 
-    console.error('[taskbar-badge] register ok', { version: 19, settingsPage: typeof ctx.registerSettingsPage === 'function' })
+    console.error('[taskbar-badge] register ok', { version: 20, settingsPage: typeof ctx.registerSettingsPage === 'function' })
   }
 }

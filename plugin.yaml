@@ -1,10 +1,10 @@
 manifest_version: 1
 name: taskbar-badge
-version: "0.6.0"
+version: "0.7.0"
 description: Coloured taskbar badge for a finished turn, a wait for input, and a failure. Agent half owns the native overlay, desktop half owns the settings and the state machine.
 author: BrokeSkill
 license: MIT
-requires_hermes: ">=0.21.5"
+requires_hermes: ">=0.22.1"
 tags:
   - desktop
   - windows

@@ -21,6 +21,8 @@ The dot clears when you open that session. Other sessions keep theirs. Failure o
 
 When no bridge can draw the coloured dot, the grey count Chromium puts on the button is the fallback, and the status-bar dot still shows the state.
 
+The two halves talk to each other over loopback on the same machine. Nothing leaves it, and there is no other network call.
+
 ## Install
 
 Capabilities -> Plugins -> Install from Git, then `BrokeSkill/hermes-taskbar-badge`. Nothing else. The plugin has two halves and they arrive together: the desktop half draws the dot and holds the settings, the Python half colours the Windows button.
