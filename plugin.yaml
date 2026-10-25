@@ -1,7 +1,7 @@
 manifest_version: 1
 name: taskbar-badge
-version: "0.1.0"
-description: Windows taskbar badge on the Hermes window when a turn finishes.
+version: "0.6.0"
+description: Coloured taskbar badge for a finished turn, a wait for input, and a failure. Agent half owns the native overlay, desktop half owns the settings and the state machine.
 author: BrokeSkill
 license: MIT
 requires_hermes: ">=0.21.5"
